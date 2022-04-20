@@ -23,9 +23,11 @@ class Blockchain:
                 return False
             
             elif self.blockchain[i].VerifyPoW == False:
+                print("Proof of Work mismatch. Invalid chain.")
                 return False
             
             else: 
+                print("Chain is valid.")
                 return True
 
             

@@ -9,7 +9,7 @@ def Hash(seed:int):
 class Block:
     def __init__(self,block_hash,votes):
         # Header fields
-        self.timestamp = time.time;
+        self.timestamp = time.time();
         self.previousHash = None
         self.blockHash = block_hash
         self.difficulty = 4
