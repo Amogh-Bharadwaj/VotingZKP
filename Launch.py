@@ -27,8 +27,7 @@ print("Prepared mock transactions/votes.\n")
 def ViewUser(N:Node):
     print("User Database:")
     print("--------------\n")
-    
-    UserTransactionMap = dict()
+
     for T in Transactions:
         if T.voter == N:
             print("Voter ID: ", N.publicKnowledge)
