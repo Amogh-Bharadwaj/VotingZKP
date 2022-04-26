@@ -1,6 +1,7 @@
 from Parameters import G,P
 from random import randint
 
+# A class for node (a voter/candidate in our case), with ZKP prover.
 class Node:
     def __init__(self,weight:int):
         self.secret = randint(1,10000000)

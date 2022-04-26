@@ -6,6 +6,7 @@ import time
 def Hash(seed:int):
     return sha256(hex(seed).encode()).hexdigest()
 
+# A class for a block with block header and transactions.
 class Block:
     def __init__(self,block_hash,votes):
         # Header fields
@@ -22,7 +23,6 @@ class Block:
         for nonce in range(1,1000000000):
             if Hash(nonce)[-self.difficulty:] == "0"*self.difficulty:
                 self.nonce = nonce
-                self.blockHash = Hash(nonce)
                 break
         
     def VerifyPoW(self):

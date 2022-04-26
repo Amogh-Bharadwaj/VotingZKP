@@ -3,6 +3,7 @@ from random import randint
 from Parameters import G,P
 import time
 
+# A transaction class with ZKP verifier.
 class Transaction:
     def __init__(self, voter:Node,candidate):
         self.voter = voter

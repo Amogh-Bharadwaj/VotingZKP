@@ -23,6 +23,7 @@ for i in range(100):
 
 print("Prepared mock transactions/votes.\n")
 
+# Views vote of a user
 def ViewUser(N:Node):
     print("User Database:")
     print("--------------\n")
@@ -45,7 +46,7 @@ print("Verifying...\n")
 print("|", sep=' ', end='')
 Loader = 0
 for T in Transactions:
-    print(u"█",sep='',end='',flush=True)
+    print(u"█",sep='',end='',flush=True) # Just for a loading bar
     if T.ZKP_TransactionVerification() == True:
         VerifiedPool.append(T)
     else:
@@ -64,7 +65,9 @@ for i in range(0,len(VerifiedPool),BLOCK_LIMIT):
         Limiter = BLOCK_LIMIT
     VoteBlock = Block("INITIAL HASH",VerifiedPool[i:i+Limiter])
     VoteChain.MineBlock(VoteBlock)
-    print()
+    print("New block mined!")
+    print("Block timestamp: ", VoteBlock.timestamp)
+    print("-----------------------------------------------------")
     
 VoteChain.VerifyChain()
 print("\n THANK YOU")

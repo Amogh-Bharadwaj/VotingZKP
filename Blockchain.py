@@ -1,4 +1,7 @@
 from Block import Block,GENESIS_BLOCK
+from MerkleTree import MerkleHash
+
+# A class for blockchain which consists of a list of blocks and two functions to add a block and verify the chain.
 
 class Blockchain:
     def __init__(self,blocks):
@@ -7,10 +10,13 @@ class Blockchain:
     def MineBlock(self,block:Block):
         print("Mining block....")
         block.previousHash = self.blockchain[-1].blockHash
+        print("Block previous hash set: ", block.previousHash)
         block.ProofOfWork()
+        block.blockHash = MerkleHash(block.transactions)
+        print("Block hash computed: ", block.blockHash)
         print("Proof of Work complete")
         self.blockchain.append(block)
-        print("New block added")
+        
     
     def VerifyChain(self):
         if self.blockchain[0] != GENESIS_BLOCK:
