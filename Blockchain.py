@@ -31,6 +31,11 @@ class Blockchain:
             elif self.blockchain[i].VerifyPoW == False:
                 print("Proof of Work mismatch. Invalid chain.")
                 return False
+
+            elif MerkleHash(self.blockchain[i].transactions) != self.blockchain[i].blockHash:
+                print("Transactions tampered with! Invalid block.")
+                return False
+
             
             else: 
                 print("Chain is valid.")
